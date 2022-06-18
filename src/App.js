@@ -39,7 +39,7 @@ function App() {
         }
       }
 
-    })
+    },[randomCandyColor])
 
     const handleRowsOfFours = useCallback(()=>{
       for (let i = 0; i < 61; i++){
@@ -54,7 +54,7 @@ function App() {
           return true
         }
       }
-    })
+    },[randomCandyColor])
 
     const handleColumnThrees = useCallback(()=>{
       for(let i = 0;i <= 47; i++){
@@ -67,7 +67,7 @@ function App() {
         }
       }
 
-    })
+    },[randomCandyColor])
 
 
     const handleColumnFours = useCallback(()=>{
@@ -80,7 +80,7 @@ function App() {
           return true
         }
       }
-    })
+    },[randomCandyColor])
 
     const handleRefill = useCallback(()=>{
       for(let i = 0; i < 64 - width; i++){
@@ -96,7 +96,7 @@ function App() {
           randomCandyColor[i] = brick
         }
       }
-    })
+    },[randomCandyColor])
 
     function dragStart(e){
       setDraggedCandy(e.target)
