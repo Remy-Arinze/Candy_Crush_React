@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useCallback } from 'react';
 import './App.css';
 import blue from './images/blue.png'
 import green from './images/green.png'
@@ -25,7 +25,7 @@ function App() {
   const [droppedCandy, setdroppedCandy] = useState(null)
 
 
-    function handleRowsOfThrees(){
+    const handleRowsOfThrees = useCallback(()=>{
       for (let i = 0; i < 62; i++){
         const rowOfThrees = [i, i+1, i+2]
         const decidedImg = randomCandyColor[i]
@@ -39,9 +39,9 @@ function App() {
         }
       }
 
-    }
+    })
 
-    function handleRowsOfFours(){
+    const handleRowsOfFours = useCallback(()=>{
       for (let i = 0; i < 61; i++){
         const rowOfThrees = [i, i+1, i+2]
         const decidedImg = randomCandyColor[i]
@@ -54,9 +54,9 @@ function App() {
           return true
         }
       }
-    }
+    })
 
-    function handleColumnThrees(){
+    const handleColumnThrees = useCallback(()=>{
       for(let i = 0;i <= 47; i++){
         const columnThree = [i,i+width,i+width*2]
         const img = randomCandyColor[i]
@@ -67,10 +67,10 @@ function App() {
         }
       }
 
-    }
+    })
 
 
-    function handleColumnFours(){
+    const handleColumnFours = useCallback(()=>{
       for(let i = 0; i <= 39; i++){
         const columnOfFour = [i,i+width,i+width*2,i+width*3]
         const img = randomCandyColor[i]
@@ -80,9 +80,9 @@ function App() {
           return true
         }
       }
-    }
+    })
 
-    function handleRefill(){
+    const handleRefill = useCallback(()=>{
       for(let i = 0; i < 64 - width; i++){
         const refillArray = [0,1,2,3,4,5,6,7]
 
@@ -96,7 +96,7 @@ function App() {
           randomCandyColor[i] = brick
         }
       }
-    }
+    })
 
     function dragStart(e){
       setDraggedCandy(e.target)
